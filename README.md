@@ -6,7 +6,7 @@ Please use at your own risk. I highly recommend backing up the save files for bo
 
 <h2>Instructions</h2>
 
-1. Clone/download repo and build solution *OR* download the latest release.
+1. Clone/download repo and build solution *OR* download the latest [release](https://github.com/cdleveille/DeepRockGalacticSaveSync/releases).
 2. Read [this Reddit post](https://www.reddit.com/r/DeepRockGalactic/comments/e7hptr/how_to_transfer_your_steam_save_to_windows_10_and/) for instructions on how to find the save game file locations for both the Steam and Windows 10/Xbox version.
 3. Copy/paste the save game locations into the **DeepRockGalacticSaveSync.dll.config** file, so it looks something like this:
 ```
