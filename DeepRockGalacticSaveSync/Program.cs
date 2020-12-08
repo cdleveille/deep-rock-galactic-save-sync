@@ -16,6 +16,19 @@ namespace DeepRockGalacticSaveSync
                 string pathSteam = ConfigurationManager.AppSettings.Get("SteamSaveLocation");
                 string pathXbox = ConfigurationManager.AppSettings.Get("XboxSaveLocation");
 
+                if (pathSteam == "" && pathXbox == "")
+                {
+                    throw new Exception("Steam and Xbox save file locations have not been set in .config file!");
+                }
+                else if (pathSteam == "")
+                {
+                    throw new Exception("Steam save file location has not been set in .config file!");
+                }
+                else if (pathXbox == "")
+                {
+                    throw new Exception("Xbox save file location has not been set in .config file!");
+                }
+
                 DirectoryInfo dirSteam = new DirectoryInfo(pathSteam);
                 DirectoryInfo dirXbox = new DirectoryInfo(pathXbox);
 
@@ -117,7 +130,8 @@ namespace DeepRockGalacticSaveSync
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("ERROR! " + e.Message);
+                Console.WriteLine("Press ENTER to exit...");
                 Console.ReadLine();
                 Environment.Exit(1);
             }
