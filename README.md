@@ -18,5 +18,5 @@ Please use at your own risk. I highly recommend backing up the save files for bo
   </appSettings>
 </configuration>
 ```
-4. Launch the version of the game (either Steam or Windows 10/Xbox) that you would like the progress to be synced for, and then close it. This is to ensure that the desired save file will have the more recent Last Modified Date.
+4. Launch the version of the game (either Steam or Windows 10/Xbox) that you would like the progress to be synced for, and then close it. Generally, this should probably be whichever version has more progress. This is to ensure that the desired save file will have the more recent Last Modified Date.
 5. Run **DeepRockGalacticSaveSync.exe** and review the output: the app will compare the Last Modified Date of each save file, and overwrite the older save file with the more recent one, renaming it appropriately. The older save file will be backed up to a new folder called **DRGSaveSync_Backup** in its original save location, with its filename prepended with a timestamp showing when it was backed up.
