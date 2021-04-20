@@ -2,7 +2,7 @@
 Run to sync the save game files between the Steam and Windows 10/Xbox versions of PC game Deep Rock Galactic.
 
 <h2>Warning</h2>
-This app *seems* to work well, however it has not been extensively tested - please use at your own risk. I highly recommend backing up the save files for both the Steam and Windows 10/Xbox version of Deep Rock Galactic before using this app.
+This app seems to work well, however it has not been extensively tested - please use at your own risk. I highly recommend backing up the save files for both the Steam and Windows 10/Xbox version of Deep Rock Galactic before using this app.
 
 <h2>Instructions</h2>
 
