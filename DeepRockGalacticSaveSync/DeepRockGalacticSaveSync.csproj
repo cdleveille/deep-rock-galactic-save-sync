@@ -4,6 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon>pickaxe.ico</ApplicationIcon>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>DeepRockGalacticSaveSync.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
