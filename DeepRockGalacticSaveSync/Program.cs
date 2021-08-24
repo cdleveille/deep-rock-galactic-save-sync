@@ -129,7 +129,7 @@ namespace DeepRockGalacticSaveSync
                 now.Hour.ToString() + "-" + now.Minute.ToString() + "-" + now.Second.ToString() + "_____";
 
             // Backup and remove Xbox file, copy Steam file to Xbox save location and rename to match name of Xbox file
-            if (steamFile.LastWriteTime >= xboxFile.LastWriteTime)
+            if (steamFile.LastWriteTime > xboxFile.LastWriteTime)
             {
                 Console.WriteLine("Steam save file has more recent Last Modified Date:");
                 Console.WriteLine("Steam: " + steamFile.LastWriteTime);
