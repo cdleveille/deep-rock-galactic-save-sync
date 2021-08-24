@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.IO;
 
 namespace DeepRockGalacticSaveSync
@@ -10,23 +9,52 @@ namespace DeepRockGalacticSaveSync
         {
             try
             {
+                FileInfo settingsFile = null;
                 FileInfo steamFile = null;
                 FileInfo xboxFile = null;
 
-                string pathSteam = ConfigurationManager.AppSettings.Get("SteamSaveLocation");
-                string pathXbox = ConfigurationManager.AppSettings.Get("XboxSaveLocation");
+                string path = System.IO.Directory.GetCurrentDirectory();
+                DirectoryInfo dir = new DirectoryInfo(path);
+                FileInfo[] files = dir.GetFiles("settings.txt");
 
-                if (pathSteam == "" && pathXbox == "")
+                if (files.Length == 0)
                 {
-                    throw new Exception("Steam and Xbox save file locations have not been set in .config file!");
+                    throw new Exception("No settings.txt file found in current directory! Please create a settings.txt file in the same directory " +
+                        "as the app that specifies the respective paths of the Steam and Xbox save files on separate lines. For example:\n\n" +
+                        "SteamSaveLocation=C:\\Program Files (x86)\\Steam\\steamapps\\common\\Deep Rock Galactic\\FSD\\Saved\\SaveGames\n" +
+                        "XboxSaveLocation=C:\\Users\\cdlev\\AppData\\Local\\Packages\\CoffeeStainStudios.DeepRockGalactic\n");
                 }
-                else if (pathSteam == "")
+                else if (files.Length > 1)
                 {
-                    throw new Exception("Steam save file location has not been set in .config file!");
+                    throw new Exception("More than one settings.txt file found in current directory!");
                 }
-                else if (pathXbox == "")
+
+                settingsFile = files[0];
+                System.IO.StreamReader settingsFileReader = new System.IO.StreamReader(settingsFile.FullName);
+                string line;
+                string[] splitLine;
+                string pathSteam = "";
+                string pathXbox = "";
+
+                while ((line = settingsFileReader.ReadLine()) != null)
                 {
-                    throw new Exception("Xbox save file location has not been set in .config file!");
+                    if (line.StartsWith("SteamSaveLocation"))
+                    {
+                        splitLine = line.Split("=");
+                        pathSteam = splitLine[1].Trim();
+                    }
+                    else if (line.StartsWith("XboxSaveLocation"))
+                    {
+                        splitLine = line.Split("=");
+                        pathXbox = splitLine[1].Trim();
+                    }
+                }
+
+                settingsFileReader.Close();
+
+                if (pathSteam == "" || pathXbox == "")
+                {
+                    throw new Exception("Steam and/or Xbox save file locations have not been set in settings.config file!");
                 }
 
                 DirectoryInfo dirSteam = new DirectoryInfo(pathSteam);
@@ -126,7 +154,6 @@ namespace DeepRockGalacticSaveSync
 
                 Console.WriteLine("Press ENTER to exit...");
                 Console.ReadLine();
-
             }
             catch (Exception e)
             {
