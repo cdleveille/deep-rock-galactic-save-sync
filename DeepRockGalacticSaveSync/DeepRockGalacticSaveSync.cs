@@ -3,7 +3,7 @@ using System.IO;
 
 namespace DeepRockGalacticSaveSync
 {
-    class Program
+    class DeepRockGalacticSaveSync
     {
         static void Main(string[] args)
         {
