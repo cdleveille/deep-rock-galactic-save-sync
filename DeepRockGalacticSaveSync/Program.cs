@@ -16,7 +16,7 @@ namespace DeepRockGalacticSaveSync
 
                 if (pathSteam == "" || pathXbox == "")
                 {
-                    throw new Exception("Steam and/or Xbox save file locations have not been set in settings.config file!");
+                    throw new Exception("Steam and/or Xbox save file locations have not been set in settings.txt file!");
                 }
 
                 FileInfo steamFile = GetSteamSaveFile(pathSteam);
