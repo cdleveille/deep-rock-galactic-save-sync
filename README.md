@@ -1,4 +1,4 @@
-# DeepRockGalacticSaveSync
+# deep-rock-galactic-save-sync
 Run to sync the save game files between the Steam and Windows 10/Xbox versions of PC game Deep Rock Galactic.
 
 <h2>Warning</h2>
